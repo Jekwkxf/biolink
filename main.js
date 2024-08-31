@@ -28,7 +28,7 @@ var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_womba
         
         var x = 0;
         
-        var titleText = ["d", "dr", "dre", "drea", "dread"];
+        var titleText = ["w", "wo", "woc", "wock", "wock"];
         
         function loop() {
         
