@@ -157,39 +157,56 @@
             z-index: 1000;
             cursor: pointer;
         }
-        .username, .socials {
+        /* Subtle hover effect for the username */
+.username {
     position: relative; /* Allow movement */
-    animation: subtleHover 8s ease-in-out infinite;
+    animation: hoverUsername 8s ease-in-out infinite;
 }
 
-.social-icons {
-    position: relative; /* Ensure social icons can also move */
-    animation: subtleHover 10s ease-in-out infinite;
+/* Subtle hover effect for the socials container */
+.socials {
+    position: relative; /* Allow movement */
+    animation: hoverSocials 10s ease-in-out infinite;
 }
 
-/* Keyframes for subtle hovering effect */
-@keyframes subtleHover {
+/* Keyframes for username subtle hovering effect */
+@keyframes hoverUsername {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-3px, -1px);
+    }
+    40% {
+        transform: translate(3px, 2px);
+    }
+    60% {
+        transform: translate(-2px, 3px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for socials subtle hovering effect */
+@keyframes hoverSocials {
     0% {
         transform: translate(0, 0);
     }
     25% {
-        transform: translate(-3px, -2px);
+        transform: translate(-2px, 3px);
     }
     50% {
-        transform: translate(3px, -1px);
+        transform: translate(2px, -1px);
     }
     75% {
-        transform: translate(-2px, 2px);
+        transform: translate(-1px, -2px);
     }
     100% {
-        transform: translate(2px, 1px);
-    }
-}
-
-        transform: translate(-10px, 10px);
-    }
-    100% {
-        transform: translate(10px, 10px);
+        transform: translate(1px, 2px);
     }
 }
 
