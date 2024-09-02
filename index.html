@@ -159,26 +159,33 @@
         }
         .username, .socials {
     position: relative; /* Allow movement */
-    animation: hoverEffect 5s ease-in-out infinite;
+    animation: subtleHover 8s ease-in-out infinite;
 }
 
 .social-icons {
     position: relative; /* Ensure social icons can also move */
-    animation: hoverEffect 6s ease-in-out infinite;
+    animation: subtleHover 10s ease-in-out infinite;
 }
 
-/* Keyframes for random hovering effect */
-@keyframes hoverEffect {
+/* Keyframes for subtle hovering effect */
+@keyframes subtleHover {
     0% {
         transform: translate(0, 0);
     }
     25% {
-        transform: translate(-10px, -10px);
+        transform: translate(-3px, -2px);
     }
     50% {
-        transform: translate(10px, -10px);
+        transform: translate(3px, -1px);
     }
     75% {
+        transform: translate(-2px, 2px);
+    }
+    100% {
+        transform: translate(2px, 1px);
+    }
+}
+
         transform: translate(-10px, 10px);
     }
     100% {
