@@ -157,16 +157,18 @@
             z-index: 1000;
             cursor: pointer;
         }
-        /* Subtle hover effect for the username */
+       /* Glowing effect and subtle hover effect for the username */
 .username {
     position: relative; /* Allow movement */
-    animation: hoverUsername 8s ease-in-out infinite;
+    animation: hoverUsername 8s ease-in-out infinite, glowUsername 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
-/* Subtle hover effect for the socials container */
+/* Glowing effect and subtle hover effect for the socials container */
 .socials {
     position: relative; /* Allow movement */
-    animation: hoverSocials 10s ease-in-out infinite;
+    animation: hoverSocials 10s ease-in-out infinite, glowSocials 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 /* Keyframes for username subtle hovering effect */
@@ -207,6 +209,26 @@
     }
     100% {
         transform: translate(1px, 2px);
+    }
+}
+
+/* Keyframes for username glowing effect */
+@keyframes glowUsername {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Keyframes for socials glowing effect */
+@keyframes glowSocials {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
     }
 }
 
