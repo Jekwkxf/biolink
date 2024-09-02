@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function playCurrentTrack() {
         audioPlayer.src = playlist[currentTrackIndex].src;
         audioPlayer.type = playlist[currentTrackIndex].type;
-        audioPlayer.load();  // Ensure the new source is loaded
+        audioPlayer.load(); // Load the new track
         audioPlayer.play().then(function() {
             playPrompt.style.display = 'none';
         }).catch(function() {
@@ -23,14 +23,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Play the next track when the current one ends
-    audioPlayer.addEventListener('ended', function() {
+    // Function to handle playing the next track
+    function playNextTrack() {
         currentTrackIndex++;
-        if (currentTrackIndex < playlist.length) {
-            playCurrentTrack();
-        } else {
-            currentTrackIndex = 0;  // Reset to the first track if needed
+        if (currentTrackIndex >= playlist.length) {
+            currentTrackIndex = 0;  // Reset to the first track if it's the end of the playlist
         }
+        playCurrentTrack();
+    }
+
+    // Listen for the end of the current track
+    audioPlayer.addEventListener('ended', function() {
+        playNextTrack();
     });
 
     // Initial attempt to play the first track
@@ -43,5 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }).catch(function(error) {
             console.error('Playback failed:', error);
         });
+    });
+    
+    // Additional event listener to ensure the next track plays correctly
+    audioPlayer.addEventListener('canplaythrough', function() {
+        console.log('Ready to play:', playlist[currentTrackIndex].src);
     });
 });
