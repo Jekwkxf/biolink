@@ -40,8 +40,3 @@ audioPlayer.play();
 
 // Initial update of current song info
 updateCurrentSongInfo();
-
-<audio controls>
-    <source src="path/to/your/audio.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
