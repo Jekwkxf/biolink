@@ -1,3 +1,6 @@
+Here’s your updated HTML with the necessary changes to support automatic music playback, along with a fallback prompt for mobile users:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,7 +139,23 @@
         .musicbtn {
             background: #000
         }
+
+        #playPrompt {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            line-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+        }
     </style>    
+    <div id="playPrompt">Tap to start music</div>
 <audio id="audioPlayer" autoplay>
     <p id="currentSong"></p>
     <script src="weary/audio.js"></script>
