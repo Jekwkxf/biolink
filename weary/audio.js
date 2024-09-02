@@ -31,15 +31,20 @@ function updateCurrentSongInfo() {
     currentSongTitle.textContent = playlist[currentSongIndex].title;
 }
 
-// Function to start playback on user interaction
-function startPlayback() {
+// Attempt to autoplay muted
+function attemptAutoplay() {
     audioPlayer.src = playlist[currentSongIndex].src;
     audioPlayer.type = playlist[currentSongIndex].type;
-    audioPlayer.play();
-
-    // Initial update of current song info
-    updateCurrentSongInfo();
+    audioPlayer.muted = true;
+    audioPlayer.play().then(() => {
+        // Autoplay started successfully, unmute
+        audioPlayer.muted = false;
+        updateCurrentSongInfo();
+    }).catch(() => {
+        // Autoplay failed, prompt the user to interact
+        console.log('Autoplay failed, user interaction required.');
+    });
 }
 
-// Attach the function to a user interaction
-document.addEventListener('click', startPlayback, { once: true });
+// Start the autoplay attempt
+attemptAutoplay();
