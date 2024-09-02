@@ -133,6 +133,7 @@
         }
 
         <style>
+    /* Dark overlay to cover the entire screen */
     #playPrompt {
         display: none;
         position: fixed;
@@ -143,15 +144,17 @@
         background-color: rgba(0, 0, 0, 0.8);
         color: white;
         text-align: center;
-        line-height: 100vh;
         font-family: "Poppins", sans-serif;
         font-size: 20px;
         z-index: 1000;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 
-<div id="playPrompt">click</div>
+<div id="playPrompt">Tap to start music</div>
 
 <audio id="audioPlayer" controls>
     <source src="1.mp3" type="audio/mp3">
@@ -179,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             playPrompt.style.display = 'none';
         }).catch(function() {
             // Show the prompt if autoplay fails
-            playPrompt.style.display = 'block';
+            playPrompt.style.display = 'flex'; // Show prompt centered
         });
     }
 
@@ -210,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 
 
