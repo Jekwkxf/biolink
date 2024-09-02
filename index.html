@@ -133,68 +133,6 @@
         }
 
         <style>
-    .container {
-        width: 100%;
-        max-width: 600px; /* Limiting the container width */
-        margin: 0 auto; /* Centering the container */
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .pfp-image {
-        width: 150px; /* Adjust size as needed */
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        z-index: 1;
-    }
-
-    .socials {
-        margin-top: 20px;
-        margin-bottom: 20px; /* Ensure there's space below social icons */
-        z-index: 1;
-    }
-
-    .controls {
-        display: flex;
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center align buttons */
-        width: 100%;
-        z-index: 1;
-    }
-
-    .musicbtn {
-        background: #000;
-        padding: 10px 20px;
-        color: white;
-        cursor: pointer;
-        margin: 10px 0; /* Vertical margin for separation */
-        display: inline-block;
-        border-radius: 5px;
-        text-align: center;
-        font-size: 16px;
-        border: 1px solid #fff;
-        width: 80%; /* Make buttons wider */
-        max-width: 300px; /* Prevent buttons from being too wide */
-    }
-
-    @media only screen and (max-width: 768px) {
-        .controls {
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        .musicbtn {
-            width: 80%; /* Ensure buttons take full width */
-            max-width: 300px; /* Prevent buttons from being too wide */
-        }
-    }
-
-    /* Ensuring the playPrompt is above everything else */
     #playPrompt {
         display: none;
         position: fixed;
@@ -213,22 +151,7 @@
     }
 </style>
 
-<div id="playPrompt">Tap to start music</div>
-
-<div class="container">
-    <img class="pfp-image" src="your-profile-pic-url" alt="pfp">
-    <p class="username">saint <img class="badge" src="badge-url" title="Owner"></p>
-    <div class="socials">
-        <div class="tooltip"><a target="_blank" href="https://tiktok.com/@ruinweary"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
-        <div class="tooltip"><a target="_blank" href="https://instagram.com/ruinweary"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
-        <div class="tooltip"><a target="_blank" href="https://x.com/xzx7_7xzx"><span class="tooltiptext">Twitter/X</span><i class="fa-brands fa-twitter social-icons"></i></a></div>
-    </div>
-    <div class="controls">
-        <div class="musicbtn" id="rewindBtn">Rewind</div>
-        <div class="musicbtn" id="playPauseBtn">Pause</div>
-        <div class="musicbtn" id="skipBtn">Skip</div>
-    </div>
-</div>
+<div id="playPrompt">click</div>
 
 <audio id="audioPlayer" controls>
     <source src="1.mp3" type="audio/mp3">
@@ -238,9 +161,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var audioPlayer = document.getElementById('audioPlayer');
     var playPrompt = document.getElementById('playPrompt');
-    var playPauseBtn = document.getElementById('playPauseBtn');
-    var rewindBtn = document.getElementById('rewindBtn');
-    var skipBtn = document.getElementById('skipBtn');
 
     // Define your playlist
     const playlist = [
@@ -257,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.load(); // Load the new track
         audioPlayer.play().then(function() {
             playPrompt.style.display = 'none';
-            playPauseBtn.textContent = 'Pause';
         }).catch(function() {
             // Show the prompt if autoplay fails
             playPrompt.style.display = 'block';
@@ -272,36 +191,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         playCurrentTrack();
     }
-
-    // Function to handle playing the previous track (rewind)
-    function playPreviousTrack() {
-        currentTrackIndex--;
-        if (currentTrackIndex < 0) {
-            currentTrackIndex = playlist.length - 1;  // Go to the last track if it's the beginning of the playlist
-        }
-        playCurrentTrack();
-    }
-
-    // Toggle between play and pause
-    playPauseBtn.addEventListener('click', function() {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            playPauseBtn.textContent = 'Pause';
-        } else {
-            audioPlayer.pause();
-            playPauseBtn.textContent = 'Play';
-        }
-    });
-
-    // Skip to the next track
-    skipBtn.addEventListener('click', function() {
-        playNextTrack();
-    });
-
-    // Rewind to the previous track
-    rewindBtn.addEventListener('click', function() {
-        playPreviousTrack();
-    });
 
     // Listen for the end of the current track
     audioPlayer.addEventListener('ended', function() {
@@ -321,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 
 
@@ -361,7 +251,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </nav>
         </header>
-
+        
+        <div class>
+            <div class="center">
+                <div class="container blur"><img class="pfp-image" style="border: 0px solid #1f202038;" src="https://media.discordapp.net/attachments/1278410045432008810/1280114971598131261/IMG_9626.jpg?ex=66d6e778&is=66d595f8&hm=57502d23f0cbee5a5815250450128045f58c8ba3aa69b5d708badae3bc1eae7f&" alt="pfp">
+                <p class="username">saint</span> <img class="badge" src="https://cdn.discordapp.com/emojis/1270447977684533372.webp?size=128&quality=lossless" title="Owner"></p>
+                    <div class="socials">
+                        <div class="tooltip"><a target="_blank" href="https://tiktok.com/@ruinweary"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
+                        <div class="tooltip"><a target="_blank" href="https://instagram.com/ruinweary"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
+                        <div class="tooltip"><a target="_blank" href="https://x.com/xzx7_xzx"><span class="tooltiptext">Twitter/X</span><i class="fa-brands fa-twitter social-icons"></i></a></div>
+                    </div>
+            </div>
       
         <script src="weary/music.js"></script>
         <script src="weary/pagecopy.js"></script>
