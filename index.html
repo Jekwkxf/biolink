@@ -161,90 +161,20 @@
     </audio>
 
     <script>
-    <div class="controls">
-        <div class="musicbtn" id="rewindBtn">Rewind</div>
-        <div class="musicbtn" id="playPauseBtn">Pause</div>
-        <div class="musicbtn" id="skipBtn">Skip</div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    <        document.addEventListener('DOMContentLoaded', function() {
             var audioPlayer = document.getElementById('audioPlayer');
             var playPrompt = document.getElementById('playPrompt');
-            var playPauseBtn = document.getElementById('playPauseBtn');
-            var rewindBtn = document.getElementById('rewindBtn');
-            var skipBtn = document.getElementById('skipBtn');
 
-            // Define your playlist
-            const playlist = [
-                { src: '1.mp3', type: 'audio/mp3' },
-                { src: '2.mp3', type: 'audio/mp3' }
-            ];
-
-            let currentTrackIndex = 0;
-
-            // Function to play the current track
-            function playCurrentTrack() {
-                audioPlayer.src = playlist[currentTrackIndex].src;
-                audioPlayer.type = playlist[currentTrackIndex].type;
-                audioPlayer.load(); // Load the new track
-                audioPlayer.play().then(function() {
-                    playPrompt.style.display = 'none';
-                    playPauseBtn.textContent = 'Pause';
-                }).catch(function() {
-                    // Show the prompt if autoplay fails
-                    playPrompt.style.display = 'block';
-                });
-            }
-
-            // Function to handle playing the next track
-            function playNextTrack() {
-                currentTrackIndex++;
-                if (currentTrackIndex >= playlist.length) {
-                    currentTrackIndex = 0;  // Reset to the first track if it's the end of the playlist
-                }
-                playCurrentTrack();
-            }
-
-            // Function to handle playing the previous track (rewind)
-            function playPreviousTrack() {
-                currentTrackIndex--;
-                if (currentTrackIndex < 0) {
-                    currentTrackIndex = playlist.length - 1;  // Go to the last track if it's the beginning of the playlist
-                }
-                playCurrentTrack();
-            }
-
-            // Toggle between play and pause
-            playPauseBtn.addEventListener('click', function() {
-                if (audioPlayer.paused) {
-                    audioPlayer.play();
-                    playPauseBtn.textContent = 'Pause';
-                } else {
-                    audioPlayer.pause();
-                    playPauseBtn.textContent = 'Play';
-                }
+            // Check if autoplay is allowed
+            audioPlayer.play().then(function() {
+                // Autoplay worked
+                playPrompt.style.display = 'none';
+            }).catch(function() {
+                // Autoplay prevented, show prompt
+                playPrompt.style.display = 'block';
             });
 
-            // Skip to the next track
-            skipBtn.addEventListener('click', function() {
-                playNextTrack();
-            });
-
-            // Rewind to the previous track
-            rewindBtn.addEventListener('click', function() {
-                playPreviousTrack();
-            });
-
-            // Listen for the end of the current track
-            audioPlayer.addEventListener('ended', function() {
-                playNextTrack();
-            });
-
-            // Initial attempt to play the first track
-            playCurrentTrack();
-
-            // If the user clicks the prompt, try to play the audio
+            // If the user clicks the prompt, play the audio
             playPrompt.addEventListener('click', function() {
                 audioPlayer.play().then(function() {
                     playPrompt.style.display = 'none';
