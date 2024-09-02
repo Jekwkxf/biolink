@@ -3,10 +3,3 @@ async function change(){await new Promise(r=>setTimeout(r,500));blur.classList.a
 button.addEventListener("click",()=>{if(audio.paused){audio.volume=0.7;audio.play();icon.classList.remove('fa-volume-up');icon.classList.add('fa-volume-mute');}else{audio.pause();icon.classList.remove('fa-volume-mute');icon.classList.add('fa-volume-up');}
 button.classList.add("replace");blur.classList.add("blurpagerplc")
 change()});
-
-document.addEventListener('click', function() {
-    const audio = document.querySelector('audio');
-    if (audio) {
-        audio.play();
-    }
-});
