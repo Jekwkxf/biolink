@@ -388,7 +388,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="tooltip"><a target="_blank" href="https://x.com/xzx7_xzx"><span class="tooltiptext">Twitter/X</span><i class="fa-brands fa-twitter social-icons"></i></a></div>
                     </div>
             </div>
-      
+   
+       <div class="views-box">
+    <p>Website Views: <span id="viewCount">Loading...</span></p>
+</div>
+
+<script>
+fetch('counter.php')
+    .then(response => response.text())
+    .then(views => {
+        document.getElementById('viewCount').textContent = views;
+    })
+    .catch(error => {
+        console.error('Error fetching view count:', error);
+    });
+</script>
+
         <script src="weary/music.js"></script>
         <script src="weary/pagecopy.js"></script>
         <script src="weary/main.js"></script>
