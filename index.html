@@ -132,7 +132,6 @@
             background-size: cover
         }
 
-
         .musicbtn {
             background: #000
         }
@@ -150,26 +149,54 @@
             line-height: 100vh;
             font-family: "Poppins", sans-serif;
             font-size: 20px;
+            z-index: 1000;
+            cursor: pointer;
         }
     </style>    
+
     <div id="playPrompt">Tap to start music</div>
-<audio id="audioPlayer" autoplay>
-    <p id="currentSong"></p>
-    <script src="weary/audio.js"></script>
-    <source src="1.mp3" type="audio/mp3">
-</audio>
 
-<script>
-    var audioElement = document.getElementById("kira1");
-    audioElement.volume = 0.2; // Set the volume to a value between 0 and 1 (e.g., 0.5 for 50% volume)
-</script>
+    <audio id="audioPlayer">
+        <p id="currentSong"></p>
+        <source src="1.mp3" type="audio/mp3">
+    </audio>
 
-<div id="border">
-    <div id="borderTop" style="top: 0; left: 0;"></div>
-    <div id="borderRight" style="right: 0; top: 0;"></div>
-    <div id="borderBottom" style="bottom: 0; right: 0;"></div>
-    <div id="borderLeft" style="left: 0; bottom: 0;"></div>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audioPlayer = document.getElementById('audioPlayer');
+            var playPrompt = document.getElementById('playPrompt');
+
+            // Check if autoplay is allowed
+            audioPlayer.play().then(function() {
+                // Autoplay worked
+                playPrompt.style.display = 'none';
+            }).catch(function() {
+                // Autoplay prevented, show prompt
+                playPrompt.style.display = 'block';
+            });
+
+            // If the user clicks the prompt, play the audio
+            playPrompt.addEventListener('click', function() {
+                audioPlayer.play().then(function() {
+                    playPrompt.style.display = 'none';
+                }).catch(function(error) {
+                    console.error('Playback failed:', error);
+                });
+            });
+        });
+    </script>
+
+    <div id="border">
+        <div id="borderTop" style="top: 0; left: 0;"></div>
+        <div id="borderRight" style="right: 0; top: 0;"></div>
+        <div id="borderBottom" style="bottom: 0; right: 0;"></div>
+        <div id="borderLeft" style="left: 0; bottom: 0;"></div>
+    </div>
+
+    <script src="weary/music.js"></script>
+</body>
+
+</html>
 
         
     <body>
