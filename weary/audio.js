@@ -1,6 +1,7 @@
 // Define your playlist of songs
 const playlist = [
     { src: '1.mp3', type: 'audio/mp3', title: '...' },
+    { src: '2.mp3', type: 'audio/mp3', title: '...' },
     // Add more songs as needed
 ];
 
