@@ -132,36 +132,39 @@
             background-size: cover
         }
 
-        .musicbtn {
-            background: #000
-        }
+        <style>
+    .musicbtn {
+        background: #000;
+        padding: 10px;
+        color: white;
+        cursor: pointer;
+        margin: 5px;
+        display: inline-block;
+    }
 
-        #playPrompt {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            line-height: 100vh;
-            font-family: "Poppins", sans-serif;
-            font-size: 20px;
-            z-index: 1000;
-            cursor: pointer;
-        }
-    </style>    
+    #playPrompt {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        text-align: center;
+        line-height: 100vh;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        z-index: 1000;
+        cursor: pointer;
+    }
 
-    <div id="playPrompt">enter</div>
-
-    <audio id="audioPlayer" controls>
-        <source src="1.mp3" type="audio/mp3">
-    </audio>
-
-    <script>
-</style>    
+    .controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+</style>
 
 <div id="playPrompt">Tap to start music</div>
 
