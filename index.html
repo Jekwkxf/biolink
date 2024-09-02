@@ -167,20 +167,38 @@
         display: flex;
         justify-content: center;
         margin-top: 20px;
+        flex-wrap: wrap;
     }
 
     .socials {
         margin-bottom: 20px; /* Add space below social icons */
     }
 
-    .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
+    .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
     }
 
-    .center {
-        text-align: center; /* Center content including buttons */
+    .container {
+        width: 100%;
+    }
+
+    .pfp-image {
+        width: 150px; /* Adjust size as needed */
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Ensures the buttons are properly placed on mobile */
+    @media only screen and (max-width: 768px) {
+        .controls {
+            flex-direction: column;
+            margin-top: 10px;
+        }
     }
 </style>
 
@@ -192,8 +210,8 @@
 
 <div class="center">
     <div class="container blur">
-        <img class="pfp-image" style="border: 0px solid #1f202038;" src="https://media.discordapp.net/attachments/1278410045432008810/1280114971598131261/IMG_9626.jpg?ex=66d6e778&is=66d595f8&hm=57502d23f0cbee5a5815250450128045f58c8ba3aa69b5d708badae3bc1eae7f&" alt="pfp">
-        <p class="username">saint <img class="badge" src="https://cdn.discordapp.com/emojis/1270447977684533372.webp?size=128&quality=lossless" title="Owner"></p>
+        <img class="pfp-image" src="your-profile-pic-url" alt="pfp">
+        <p class="username">saint <img class="badge" src="badge-url" title="Owner"></p>
         <div class="socials clearfix">
             <div class="tooltip"><a target="_blank" href="https://tiktok.com/@ruinweary"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
             <div class="tooltip"><a target="_blank" href="https://instagram.com/ruinweary"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
@@ -295,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 
 
