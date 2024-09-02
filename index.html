@@ -131,36 +131,37 @@
             background-color: #0d0d0e;
             background-size: cover
         }
+        
+        .musicbtn {
+            background: #000
+        }
+        
+        #playPrompt {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            line-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+    </style>    
 
-        <style>
-    /* Dark overlay to cover the entire screen */
-    #playPrompt {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
-        text-align: center;
-        font-family: "Poppins", sans-serif;
-        font-size: 20px;
-        z-index: 1000;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
+    <div id="playPrompt">click</div>
 
-<div id="playPrompt">Tap to start music</div>
+    <audio id="audioPlayer">
+        <p id="currentSong"></p>
+        <source src="1.mp3" type="audio/mp3">
+    </audio>
 
-<audio id="audioPlayer" controls>
-    <source src="1.mp3" type="audio/mp3">
-</audio>
-
-<script>
+  <script>
 document.addEventListener('DOMContentLoaded', function() {
     var audioPlayer = document.getElementById('audioPlayer');
     var playPrompt = document.getElementById('playPrompt');
