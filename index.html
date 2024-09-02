@@ -133,6 +133,39 @@
         }
 
         <style>
+    .container {
+        width: 100%;
+        max-width: 600px; /* Limiting the container width */
+        margin: 0 auto; /* Centering the container */
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pfp-image {
+        width: 150px; /* Adjust size as needed */
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .socials {
+        margin-top: 20px;
+        margin-bottom: 20px; /* Ensure there's space below social icons */
+        z-index: 1;
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center align buttons */
+        width: 100%;
+        z-index: 1;
+    }
+
     .musicbtn {
         background: #000;
         padding: 10px 20px;
@@ -144,8 +177,24 @@
         text-align: center;
         font-size: 16px;
         border: 1px solid #fff;
+        width: 80%; /* Make buttons wider */
+        max-width: 300px; /* Prevent buttons from being too wide */
     }
 
+    @media only screen and (max-width: 768px) {
+        .controls {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .musicbtn {
+            width: 80%; /* Ensure buttons take full width */
+            max-width: 300px; /* Prevent buttons from being too wide */
+        }
+    }
+
+    /* Ensuring the playPrompt is above everything else */
     #playPrompt {
         display: none;
         position: fixed;
@@ -162,77 +211,28 @@
         z-index: 1000;
         cursor: pointer;
     }
-
-    .controls {
-        display: flex;
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center align buttons */
-        margin-top: 20px;
-        z-index: 1;
-    }
-
-    .socials {
-        margin-bottom: 40px; /* Extra space below social icons */
-    }
-
-    .center {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        position: relative;
-        z-index: 0;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    .pfp-image {
-        width: 150px; /* Adjust size as needed */
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        z-index: 0;
-    }
-
-    /* Mobile specific adjustments */
-    @media only screen and (max-width: 768px) {
-        .controls {
-            flex-direction: column;
-            width: 100%; /* Ensure buttons take full width */
-        }
-
-        .musicbtn {
-            width: 80%; /* Make buttons wider on mobile */
-            max-width: 300px; /* Prevent buttons from being too wide */
-        }
-    }
 </style>
 
 <div id="playPrompt">Tap to start music</div>
 
+<div class="container">
+    <img class="pfp-image" src="your-profile-pic-url" alt="pfp">
+    <p class="username">saint <img class="badge" src="badge-url" title="Owner"></p>
+    <div class="socials">
+        <div class="tooltip"><a target="_blank" href="https://tiktok.com/@ruinweary"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
+        <div class="tooltip"><a target="_blank" href="https://instagram.com/ruinweary"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
+        <div class="tooltip"><a target="_blank" href="https://x.com/xzx7_7xzx"><span class="tooltiptext">Twitter/X</span><i class="fa-brands fa-twitter social-icons"></i></a></div>
+    </div>
+    <div class="controls">
+        <div class="musicbtn" id="rewindBtn">Rewind</div>
+        <div class="musicbtn" id="playPauseBtn">Pause</div>
+        <div class="musicbtn" id="skipBtn">Skip</div>
+    </div>
+</div>
+
 <audio id="audioPlayer" controls>
     <source src="1.mp3" type="audio/mp3">
 </audio>
-
-<div class="center">
-    <div class="container blur">
-        <img class="pfp-image" src="your-profile-pic-url" alt="pfp">
-        <p class="username">saint <img class="badge" src="badge-url" title="Owner"></p>
-        <div class="socials clearfix">
-            <div class="tooltip"><a target="_blank" href="https://tiktok.com/@ruinweary"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
-            <div class="tooltip"><a target="_blank" href="https://instagram.com/ruinweary"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
-            <div class="tooltip"><a target="_blank" href="https://x.com/xzx7_7xzx"><span class="tooltiptext">Twitter/X</span><i class="fa-brands fa-twitter social-icons"></i></a></div>
-        </div>
-        <!-- Place buttons below social icons -->
-        <div class="controls">
-            <div class="musicbtn" id="rewindBtn">Rewind</div>
-            <div class="musicbtn" id="playPauseBtn">Pause</div>
-            <div class="musicbtn" id="skipBtn">Skip</div>
-        </div>
-    </div>
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 
 <!-- Snow effect script -->
