@@ -170,6 +170,45 @@
     animation: hoverSocials 10s ease-in-out infinite, glowSocials 2s ease-in-out infinite alternate;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
 }
+/* Glowing and hovering effect for the profile picture */
+.pfp-image {
+    position: relative; /* Allow movement */
+    animation: hoverPfp 10s ease-in-out infinite, glowPfp 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+    border-radius: 50%; /* Keep the round shape */
+}
+
+/* Keyframes for pfp subtle hovering effect */
+@keyframes hoverPfp {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-1px, 1px);
+    }
+    80% {
+        transform: translate(1px, -1px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for pfp glowing effect */
+@keyframes glowPfp {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.4);
+    }
+}
 
 /* Keyframes for username subtle hovering effect */
 @keyframes hoverUsername {
