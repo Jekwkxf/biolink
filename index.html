@@ -138,14 +138,12 @@
         padding: 10px 20px;
         color: white;
         cursor: pointer;
-        margin: 5px;
+        margin: 10px; /* Add margin to separate buttons */
         display: inline-block;
         border-radius: 5px;
         text-align: center;
         font-size: 16px;
         border: 1px solid #fff;
-        z-index: 10; /* Ensure buttons are on top */
-        position: relative; /* Ensure z-index is respected */
     }
 
     #playPrompt {
@@ -167,30 +165,23 @@
 
     .controls {
         display: flex;
-        justify-content: center;
-        margin-top: 20px;
+        justify-content: space-around; /* Space out the buttons */
         flex-wrap: wrap;
-        position: relative; /* Ensure it stays in the correct flow */
-        z-index: 10;
+        margin-top: 20px;
     }
 
     .socials {
-        margin-bottom: 40px; /* Extra space below social icons */
-        position: relative;
-        z-index: 1;
+        margin-bottom: 20px;
     }
 
     .center {
-        display: block; /* Ensure block-level for stacking */
+        display: block;
         text-align: center;
         padding: 20px;
-        position: relative;
-        z-index: 1;
     }
 
     .container {
         width: 100%;
-        position: relative;
     }
 
     .pfp-image {
@@ -198,15 +189,18 @@
         height: 150px;
         border-radius: 50%;
         object-fit: cover;
-        z-index: 1;
-        position: relative;
     }
 
     /* Mobile specific adjustments */
     @media only screen and (max-width: 768px) {
         .controls {
             flex-direction: column;
-            margin-top: 10px;
+            align-items: center; /* Center align buttons */
+        }
+
+        .musicbtn {
+            width: 80%; /* Ensure buttons are wider on mobile for better tap target */
+            margin: 10px 0; /* Space buttons vertically on mobile */
         }
     }
 </style>
@@ -322,6 +316,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<!-- Snow effect script -->
+<script src="weary/snow.js"></script>
+<script>
+    // Adjust the snow effect here
+    // Assuming you have control over the size in your 'snow.js' file
+    // Look for a parameter like `flakeSize` or similar
+    // Here's a generic example
+    setupSnowEffect(snowSettings);
+</script>
+
 
 
 
