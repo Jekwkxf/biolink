@@ -158,7 +158,7 @@
     }
 </style>
 
-<div id="playPrompt">Tap to start music</div>
+<div id="playPrompt">click</div>
 
 <audio id="audioPlayer" controls>
     <source src="1.mp3" type="audio/mp3">
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
             playPrompt.style.display = 'none';
         }).catch(function() {
             // Show the prompt if autoplay fails
-            playPrompt.style.display = 'flex'; // Show prompt centered
+            playPrompt.style.display = 'block';
         });
     }
 
