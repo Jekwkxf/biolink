@@ -7,6 +7,7 @@ const playlist = [
 // Get references to necessary elements
 const audioPlayer = document.getElementById('audioPlayer');
 const currentSongTitle = document.getElementById('currentSongTitle');
+const playPrompt = document.getElementById('playPrompt');
 
 let currentSongIndex = 0; // Index to keep track of current song in playlist
 
@@ -31,20 +32,38 @@ function updateCurrentSongInfo() {
     currentSongTitle.textContent = playlist[currentSongIndex].title;
 }
 
-// Attempt to autoplay muted
-function attemptAutoplay() {
+// Function to detect if the user is on a mobile device
+function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+// Function to start playback, with fallback for mobile devices
+function startPlayback() {
     audioPlayer.src = playlist[currentSongIndex].src;
     audioPlayer.type = playlist[currentSongIndex].type;
-    audioPlayer.muted = true;
+    audioPlayer.muted = isMobileDevice(); // Mute only if on mobile
     audioPlayer.play().then(() => {
-        // Autoplay started successfully, unmute
-        audioPlayer.muted = false;
+        // Autoplay started successfully
+        if (isMobileDevice()) {
+            audioPlayer.muted = false; // Unmute for mobile after play starts
+        }
         updateCurrentSongInfo();
     }).catch(() => {
-        // Autoplay failed, prompt the user to interact
-        console.log('Autoplay failed, user interaction required.');
+        // Autoplay failed, user interaction required
+        if (isMobileDevice()) {
+            // Show the prompt to the user to start the music
+            playPrompt.style.display = 'block';
+        }
     });
 }
 
-// Start the autoplay attempt
-attemptAutoplay();
+// Start playback attempt
+startPlayback();
+
+// Add event listener for user interaction on mobile
+if (isMobileDevice()) {
+    playPrompt.addEventListener('click', () => {
+        audioPlayer.play();
+        playPrompt.style.display = 'none';
+    });
+}
