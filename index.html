@@ -138,7 +138,7 @@
         padding: 10px 20px;
         color: white;
         cursor: pointer;
-        margin: 10px; /* Add margin to separate buttons */
+        margin: 10px 0; /* Vertical margin for separation */
         display: inline-block;
         border-radius: 5px;
         text-align: center;
@@ -165,19 +165,23 @@
 
     .controls {
         display: flex;
-        justify-content: space-around; /* Space out the buttons */
-        flex-wrap: wrap;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center align buttons */
         margin-top: 20px;
+        z-index: 1;
     }
 
     .socials {
-        margin-bottom: 20px;
+        margin-bottom: 40px; /* Extra space below social icons */
     }
 
     .center {
-        display: block;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 20px;
+        position: relative;
+        z-index: 0;
     }
 
     .container {
@@ -189,18 +193,19 @@
         height: 150px;
         border-radius: 50%;
         object-fit: cover;
+        z-index: 0;
     }
 
     /* Mobile specific adjustments */
     @media only screen and (max-width: 768px) {
         .controls {
             flex-direction: column;
-            align-items: center; /* Center align buttons */
+            width: 100%; /* Ensure buttons take full width */
         }
 
         .musicbtn {
-            width: 80%; /* Ensure buttons are wider on mobile for better tap target */
-            margin: 10px 0; /* Space buttons vertically on mobile */
+            width: 80%; /* Make buttons wider on mobile */
+            max-width: 300px; /* Prevent buttons from being too wide */
         }
     }
 </style>
@@ -316,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 <!-- Snow effect script -->
 <script src="weary/snow.js"></script>
