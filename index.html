@@ -157,6 +157,35 @@
             z-index: 1000;
             cursor: pointer;
         }
+        .username, .socials {
+    position: relative; /* Allow movement */
+    animation: hoverEffect 5s ease-in-out infinite;
+}
+
+.social-icons {
+    position: relative; /* Ensure social icons can also move */
+    animation: hoverEffect 6s ease-in-out infinite;
+}
+
+/* Keyframes for random hovering effect */
+@keyframes hoverEffect {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-10px, -10px);
+    }
+    50% {
+        transform: translate(10px, -10px);
+    }
+    75% {
+        transform: translate(-10px, 10px);
+    }
+    100% {
+        transform: translate(10px, 10px);
+    }
+}
+
     </style>    
 
     <div id="playPrompt">Tap to start music</div>
