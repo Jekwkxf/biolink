@@ -1,13 +1,12 @@
 // Define your playlist of songs
 const playlist = [
-    { src: '1.mp3', type: 'audio/mp3', title: '...'  },
+    { src: '1.mp3', type: 'audio/mp3', title: '...' },
     // Add more songs as needed
 ];
 
 // Get references to necessary elements
 const audioPlayer = document.getElementById('audioPlayer');
 const currentSongTitle = document.getElementById('currentSongTitle');
-
 
 let currentSongIndex = 0; // Index to keep track of current song in playlist
 
@@ -32,11 +31,15 @@ function updateCurrentSongInfo() {
     currentSongTitle.textContent = playlist[currentSongIndex].title;
 }
 
+// Function to start playback on user interaction
+function startPlayback() {
+    audioPlayer.src = playlist[currentSongIndex].src;
+    audioPlayer.type = playlist[currentSongIndex].type;
+    audioPlayer.play();
 
-// Autoplay the first song
-audioPlayer.src = playlist[currentSongIndex].src;
-audioPlayer.type = playlist[currentSongIndex].type;
-audioPlayer.play();
+    // Initial update of current song info
+    updateCurrentSongInfo();
+}
 
-// Initial update of current song info
-updateCurrentSongInfo();
+// Attach the function to a user interaction
+document.addEventListener('click', startPlayback, { once: true });
