@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="leia" />
-    <meta property="og:description" content=">_<" />
+    <meta property="og:title" content="saint" />
+    <meta property="og:description" content="leia" />
     <meta property="og:url" content="wock.wtf">
-    <meta property="og:image" content="https://images-ext-1.discordapp.net/external/ZVMQlAWCXCaWAlzZDCZE8gfOe0xIlwKkbJkV-up1RrE/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1272352295023018045/66a7185807aa2dbedb58375db56e5958.png">
-    <meta name="twitter:card" content="hi im leia">
-    <meta name="twitter:title" content="leia">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1280281540349395067/1280286451686178866/IMG_9626.jpg?ex=66d7872c&is=66d635ac&hm=852830bc45a8c039234a82b12a0b83779ddbd241756010088a06af484e32a71e&">
+    <meta name="twitter:card" content="hi im weary">
+    <meta name="twitter:title" content="saint">
     <meta name="twitter:description" content="📍">
-    <meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/ZVMQlAWCXCaWAlzZDCZE8gfOe0xIlwKkbJkV-up1RrE/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1272352295023018045/66a7185807aa2dbedb58375db56e5958.png">
+    <meta name="twitter:image" content="https://media.discordapp.net/attachments/1280281540349395067/1280286451686178866/IMG_9626.jpg?ex=66d7872c&is=66d635ac&hm=852830bc45a8c039234a82b12a0b83779ddbd241756010088a06af484e32a71e&">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/cdn-cgi/apps/head/7_N3aHJ6fMx1u8oH90iZ0LNZJvY.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
@@ -113,15 +113,15 @@
         }
 
         .username {
-            color: #FDF2F2
+            color: #ffffff
         }
 
         .bio-text {
-            color: #FDF2F2
+            color: #ffffff
         }
 
         .social-icons {
-            color: #FDF2F2
+            color: #fffff
         }
 
         .btn-link {
@@ -141,8 +141,22 @@
             background: #000
         }
         
-      
-        
+        #playPrompt {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            line-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
        /* Glowing effect and subtle hover effect for the username */
 .username {
     position: relative; /* Allow movement */
@@ -301,7 +315,67 @@
 
     </style>    
 
+    <div id="playPrompt">click</div>
 
+    <audio id="audioPlayer">
+        <p id="currentSong"></p>
+        <source src="1.mp3" type="audio/mp3">
+    </audio>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var audioPlayer = document.getElementById('audioPlayer');
+    var playPrompt = document.getElementById('playPrompt');
+
+    // Define your playlist
+    const playlist = [
+        { src: '1.mp3', type: 'audio/mp3' },
+        { src: '2.mp3', type: 'audio/mp3' }
+    ];
+
+    let currentTrackIndex = 0;
+
+    // Function to play the current track
+    function playCurrentTrack() {
+        audioPlayer.src = playlist[currentTrackIndex].src;
+        audioPlayer.type = playlist[currentTrackIndex].type;
+        audioPlayer.load(); // Load the new track
+        audioPlayer.play().then(function() {
+            playPrompt.style.display = 'none';
+        }).catch(function() {
+            // Show the prompt if autoplay fails
+            playPrompt.style.display = 'block';
+        });
+    }
+
+    // Function to handle playing the next track
+    function playNextTrack() {
+        currentTrackIndex++;
+        if (currentTrackIndex >= playlist.length) {
+            currentTrackIndex = 0;  // Reset to the first track if it's the end of the playlist
+        }
+        playCurrentTrack();
+    }
+
+    // Listen for the end of the current track
+    audioPlayer.addEventListener('ended', function() {
+        playNextTrack();
+    });
+
+    // Initial attempt to play the first track
+    playCurrentTrack();
+
+    // If the user clicks the prompt, try to play the audio
+    playPrompt.addEventListener('click', function() {
+        audioPlayer.play().then(function() {
+            playPrompt.style.display = 'none';
+        }).catch(function(error) {
+            console.error('Playback failed:', error);
+        });
+    });
+});
+</script>
 
 
 
@@ -309,7 +383,7 @@
 
 
 <!-- Snow effect script -->
-<script src="leia/snow.js"></script>
+<script src="weary/snow.js"></script>
 <script>
     // Adjust the snow effect here
     // Assuming you have control over the size in your 'snow.js' file
@@ -331,7 +405,7 @@
         <div id="borderLeft" style="left: 0; bottom: 0;"></div>
     </div>
 
-    <script src="leia/music.js"></script>
+    <script src="weary/music.js"></script>
 </body>
 
 </html>
@@ -346,7 +420,7 @@
             </nav>
         </header>
         
-        <div class>
+                <div class>
             <div class="center">
                 <div class="container blur"><img class="pfp-image" style="border: 0px solid #1f202038;" src="https://cdn.discordapp.com/avatars/1272352295023018045/66a7185807aa2dbedb58375db56e5958.png?size=1024" alt="pfp">
                 <p class="username">leia</span> <img class="badge" src="https://cdn.discordapp.com/emojis/1280324631538044950.webp?size=96&quality=lossless" title="Owner"></p>
@@ -356,6 +430,7 @@
                         <div class="tooltip"><a target="_blank" href="https://discord.gg/lmao"><span class="tooltiptext">Discord</span><i class="fa-brands fa-discord social-icons"></i></a></div>
                     </div>
             </div>
+        
    
             
         <script src="weary/music.js"></script>
@@ -364,7 +439,13 @@
 <script src="weary/load.js"></script>
 <script src="weary/snow.js"></script>
 <script>
-
+    // Initialize the snow effect with your settings
+    const snowSettings = {
+        flakeSize: 5, // Example settings
+        flakeSpeed: 2
+    };
+    setupSnowEffect(snowSettings);
+</script>
 
         <!DOCTYPE html>
         <html lang="en">
