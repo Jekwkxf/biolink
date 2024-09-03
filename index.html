@@ -271,6 +271,48 @@
     }
 }
 
+/* Glowing and hovering effect for the bio-text */
+.bio-text {
+    position: relative; /* Allow movement */
+    animation: hoverBio 8s ease-in-out infinite, glowBio 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    font-size: 18px; /* Adjust font size as needed */
+    color: white; /* Ensure the text color complements the glow */
+}
+
+/* Keyframes for bio-text subtle hovering effect */
+@keyframes hoverBio {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, 1px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-1px, 2px);
+    }
+    80% {
+        transform: translate(1px, -1px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for bio-text glowing effect */
+@keyframes glowBio {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+    }
+}
+
+
     </style>    
 
     <div id="playPrompt">Tap to start music</div>
