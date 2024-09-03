@@ -315,12 +315,13 @@
 
     </style>    
 
-    <div id="playPrompt">click</div>
+    <div id="playPrompt">enter</div>
 
-    <audio id="audioPlayer">
-        <p id="currentSong"></p>
-        <source src="1.mp3" type="audio/mp3">
-    </audio>
+<audio id="audioPlayer">
+    <source src="1.mp3" type="audio/mp3">
+</audio>
+
+
 
 
 <script>
@@ -342,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.type = playlist[currentTrackIndex].type;
         audioPlayer.load(); // Load the new track
         audioPlayer.play().then(function() {
-            playPrompt.style.display = 'none';
+            playPrompt.style.display = 'none'; // Hide prompt on successful play
         }).catch(function() {
             // Show the prompt if autoplay fails
             playPrompt.style.display = 'block';
